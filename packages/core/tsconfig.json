@@ -2,6 +2,7 @@
   "extends": "@tsconfig/node16/tsconfig.json",
   "compilerOptions": {
     "module": "esnext",
+    "jsx": "react",
     "paths": {
       "@core/*": ["./src/*"],
       "@frontend-emails/*": ["../frontend-emails/*"]

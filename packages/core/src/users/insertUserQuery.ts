@@ -1,9 +1,18 @@
-import {db, dbSchema} from '@core/db'
+import { db, dbSchema } from '@core/db';
 
-export default function({ fullName, email } : {fullName?: string, email: string}) {
+export default function ({
+  fullName,
+  email,
+}: {
+  fullName?: string;
+  email: string;
+}) {
   const user = {
     fullName,
     email,
-  }
-  return db.insert(dbSchema.users).values(user)
+  };
+  return db
+    .insert(dbSchema.users)
+    .values(user)
+    .returning({ id: dbSchema.users.id });
 }

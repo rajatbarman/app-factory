@@ -1,12 +1,8 @@
-import { ApiHandler, useQueryParams } from "sst/node/api";
-import { createAPIResponse, generateRandomToken } from "@core/utils";
-import {
-  getOTPQuery,
-  isOTPExpired,
-  signAccessTokenJWT,
-} from "@core/auth";
-import { insertUserQuery, getUserQuery } from "@core/users";
-import { z } from "zod";
+import { ApiHandler, useQueryParams } from 'sst/node/api';
+import { createAPIResponse, generateRandomToken } from '@core/utils';
+import { getOTPQuery, isOTPExpired, signAccessTokenJWT } from '@core/auth';
+import { insertUserQuery, getUserQuery } from '@core/users';
+import { z } from 'zod';
 import { insertRefreshTokenQuery } from '@core/auth';
 
 const requestBodySchema = z.object({
@@ -29,32 +25,33 @@ export const handler = ApiHandler(async (event) => {
       let userId;
       const [existingUser] = await getUserQuery({ email });
       if (!existingUser.id) {
-        userId = (await insertUserQuery({ email })).insertId;
+        const [returned] = await insertUserQuery({ email });
+        userId = returned.id;
       } else {
         userId = existingUser.id;
       }
 
       const refreshToken = generateRandomToken();
       const accessToken = signAccessTokenJWT({
-        userId,
-        email
+        userId: String(userId),
+        email,
       });
       await insertRefreshTokenQuery({
-        userId,
+        userId: String(userId),
         refreshToken,
       });
       resp = {
         error: false,
-        message: "Verification successful",
+        message: 'Verification successful',
         data: {
           accessToken,
-          refreshToken
+          refreshToken,
         },
       };
     } else {
       resp = {
         error: true,
-        message: "Invalid OTP, try logging in again",
+        message: 'Invalid OTP, try logging in again',
       };
     }
   } catch (e) {

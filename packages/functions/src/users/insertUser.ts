@@ -2,6 +2,7 @@ import { ApiHandler, useBody, useJsonBody } from 'sst/node/api';
 import { db } from '@core/db';
 import { users } from '@core/db/schema';
 import { createAPIResponse } from '@core/utils';
+import { insertUserQuery } from '@core/users';
 
 export const handler = ApiHandler(async (event) => {
   const body = useJsonBody();
@@ -11,10 +12,7 @@ export const handler = ApiHandler(async (event) => {
   };
   let resp = null;
   try {
-    const [returned] = await db
-      .insert(users)
-      .values(user)
-      .returning({ id: users.id });
+    const [returned] = await insertUserQuery(user);
     resp = {
       error: false,
       message: 'User inserted successfully',
