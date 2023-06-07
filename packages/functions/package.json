@@ -1,0 +1,14 @@
+{
+  "name": "@app-factory/functions",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "sst bind vitest",
+    "typecheck": "tsc -noEmit"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.115",
+    "@types/node": "^20.2.5",
+    "vitest": "^0.31.4"
+  }
+}

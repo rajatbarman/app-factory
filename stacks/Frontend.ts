@@ -1,0 +1,17 @@
+import { StackContext, NextjsSite, use } from 'sst/constructs';
+import { API } from './API';
+
+export function Frontend({ stack }: StackContext) {
+  const { api } = use(API);
+  const site = new NextjsSite(stack, 'NextFrontend', {
+    path: 'packages/frontend',
+    environment: {
+      NEXT_PUBLIC_API_HOST: api.url,
+    },
+  });
+
+  // Add the site's URL to stack output (in console)
+  stack.addOutputs({
+    URL: site.url || 'localhost:3000',
+  });
+}

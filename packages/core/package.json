@@ -1,0 +1,13 @@
+{
+  "name": "@app-factory/core",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "sst bind vitest",
+    "typecheck": "tsc -noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^20.2.5",
+    "vitest": "^0.31.4"
+  }
+}

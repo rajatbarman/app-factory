@@ -1,0 +1,13 @@
+{
+  "version": "5",
+  "dialect": "pg",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1686164057912,
+      "tag": "0000_shocking_kingpin",
+      "breakpoints": false
+    }
+  ]
+}
