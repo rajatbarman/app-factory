@@ -1,9 +1,13 @@
 import { ApiHandler, useQueryParams } from 'sst/node/api';
-import { createAPIResponse, generateRandomToken } from '@core/utils';
-import { getOTPQuery, isOTPExpired, signAccessTokenJWT } from '@core/auth';
-import { insertUserQuery, getUserQuery } from '@core/users';
+import createAPIResponse from '@core/utils/createAPIResponse';
+import generateRandomToken from '@core/utils/generateRandomToken';
+import getOTPQuery from '@core/auth/getOTPQuery';
+import isOTPExpired from '@core/auth/isOTPExpired';
+import signAccessTokenJWT from '@core/auth/signAccessTokenJWT';
+import insertUserQuery from '@core/users/insertUserQuery';
+import getUserQuery from '@core/users/getUserQuery';
 import { z } from 'zod';
-import { insertRefreshTokenQuery } from '@core/auth';
+import insertRefreshTokenQuery from '@core/auth/insertRefreshTokenQuery';
 
 const requestBodySchema = z.object({
   email: z.string().email().trim(),

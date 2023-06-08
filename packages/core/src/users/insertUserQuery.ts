@@ -1,4 +1,4 @@
-import { db, dbSchema } from '@core/db';
+import { db, dbSchema } from '@core/db/connection';
 
 export default function ({
   fullName,

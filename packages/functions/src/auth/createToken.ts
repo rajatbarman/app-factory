@@ -1,16 +1,14 @@
 import { ApiHandler, useQueryParams, useHeader } from 'sst/node/api';
-import { createAPIResponse } from '@core/utils';
+import createAPIResponse from '@core/utils/createAPIResponse';
 import dayjs from 'dayjs';
-import {
-  deleteRefreshTokensQuery,
-  getRefreshTokenQuery,
-  verifyAccessTokenJWT,
-  signAccessTokenJWT,
-  insertRefreshTokenQuery,
-  updateRefreshTokenQuery,
-  getSession,
-  isRefreshTokenExpired,
-} from '@core/auth';
+import deleteRefreshTokensQuery from '@core/auth/deleteRefreshTokensQuery';
+import getRefreshTokenQuery from '@core/auth/getRefreshTokenQuery';
+import verifyAccessTokenJWT from '@core/auth/verifyAccessTokenJWT';
+import signAccessTokenJWT from '@core/auth/signAccessTokenJWT';
+import insertRefreshTokenQuery from '@core/auth/insertRefreshTokenQuery';
+import updateRefreshTokenQuery from '@core/auth/updateRefreshTokenQuery';
+import getSession from '@core/auth/getSession';
+import isRefreshTokenExpired from '@core/auth/isRefreshTokenExpired';
 import { z } from 'zod';
 import generateRandomToken from '@core/utils/generateRandomToken';
 

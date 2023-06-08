@@ -8,5 +8,4 @@ const pool = new Pool({
 
 // create the connection
 export const db = drizzle(pool);
-
 export * as dbSchema from './schema';

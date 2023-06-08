@@ -1,6 +1,6 @@
 import { ApiHandler, useJsonBody } from 'sst/node/api';
-import { createAPIResponse } from '@core/utils';
-import { insertUserQuery } from '@core/users';
+import createAPIResponse from '@core/utils/createAPIResponse';
+import insertUserQuery from '@core/users/insertUserQuery';
 
 export const handler = ApiHandler(async (event) => {
   const body = useJsonBody();

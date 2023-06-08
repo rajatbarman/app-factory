@@ -10,7 +10,7 @@ import {
   Text,
 } from '@react-email/components';
 import { render } from '@react-email/render';
-import * as React from 'react';
+import React from 'react';
 
 interface OTPEmailProps {
   otp: string | number;

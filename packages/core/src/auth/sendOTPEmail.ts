@@ -1,6 +1,8 @@
-import { sendEmail } from '../emails';
+import sendEmail from '../emails/sendEmail';
 import { OTP_EMAIL_SUBJECT } from '../constants';
 import { renderOtpEmail } from '@frontend-emails/emails/otp-email';
+
+/* TODO: Figure out a way to not have react and all bundled from frontend-emails */
 
 export default async function sendOTPEmail({
   email,

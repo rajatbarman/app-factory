@@ -1,8 +1,10 @@
-import { ApiHandler, useQueryParams } from "sst/node/api";
-import { sendOTPEmail } from "@core/auth";
-import { createAPIResponse } from "@core/utils";
-import { isOTPExpired, insertOTPQuery, getOTPQuery } from "@core/auth";
-import { z } from "zod";
+import { ApiHandler, useQueryParams } from 'sst/node/api';
+import sendOTPEmail from '@core/auth/sendOTPEmail';
+import createAPIResponse from '@core/utils/createAPIResponse';
+import isOTPExpired from '@core/auth/isOTPExpired';
+import insertOTPQuery from '@core/auth/insertOTPQuery';
+import getOTPQuery from '@core/auth/getOTPQuery';
+import { z } from 'zod';
 
 const requestBodySchema = z.object({
   email: z.string().email().trim(),
@@ -30,7 +32,7 @@ export const handler = ApiHandler(async (event) => {
     await sendOTPEmail({ email, otp });
     resp = {
       error: false,
-      message: "Sent successfully",
+      message: 'Sent successfully',
     };
   } catch (e) {
     console.log(e);

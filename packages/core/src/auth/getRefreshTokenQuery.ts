@@ -1,4 +1,4 @@
-import { db, dbSchema } from '../db';
+import { db, dbSchema } from '../db/connection';
 import { eq, and, desc } from 'drizzle-orm';
 import { TOKEN_TYPES } from '../constants';
 

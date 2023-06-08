@@ -1,4 +1,4 @@
-import { db, dbSchema } from '../db';
+import { db, dbSchema } from '../db/connection';
 import { eq, desc } from 'drizzle-orm';
 
 export default async function getOTPQuery({ email }: { email: string }) {

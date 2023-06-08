@@ -1,4 +1,4 @@
-import { db, dbSchema } from '../db';
+import { db, dbSchema } from '../db/connection';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 import { TOKEN_TYPES } from '../constants';

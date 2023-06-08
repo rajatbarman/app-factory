@@ -1,12 +1,16 @@
-import { z } from "zod";
-import { verifyAccessTokenJWT } from '@core/auth'
+import { z } from 'zod';
+import verifyAccessTokenJWT from '@core/auth/verifyAccessTokenJWT';
 
 const requestBodySchema = z.object({
   token: z.string().trim(),
 });
 
-export default function getSession({ authorizationValue } : {authorizationValue: string}) {
-  const [unusedStr, _token] = authorizationValue.split('Bearer ')
+export default function getSession({
+  authorizationValue,
+}: {
+  authorizationValue: string;
+}) {
+  const [unusedStr, _token] = authorizationValue.split('Bearer ');
   let ret = null;
   let token = null;
 
@@ -18,9 +22,9 @@ export default function getSession({ authorizationValue } : {authorizationValue:
       token,
       data: {
         userId: data.sub,
-        email: data.email
-      }
-    }
+        email: data.email,
+      },
+    };
   } catch (e: any) {
     console.log(e);
     ret = {

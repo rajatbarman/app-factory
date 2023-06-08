@@ -1,4 +1,4 @@
-import { db, dbSchema } from '@core/db';
+import { db, dbSchema } from '@core/db/connection';
 import { eq } from 'drizzle-orm';
 import { z } from 'zod';
 

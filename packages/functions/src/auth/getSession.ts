@@ -1,14 +1,14 @@
-import { ApiHandler, useHeader, useHeaders } from "sst/node/api";
-import { createAPIResponse } from "@core/utils";
-import { getSession } from "@core/auth";
+import { ApiHandler, useHeader, useHeaders } from 'sst/node/api';
+import createAPIResponse from '@core/utils/createAPIResponse';
+import getSession from '@core/auth/getSession';
 
 export const handler = ApiHandler(async () => {
-  const authHeader = useHeader("authorization");
+  const authHeader = useHeader('authorization');
   if (!authHeader) {
     return createAPIResponse({
       error: true,
       statusCode: 401,
-      message: "Unauthorized",
+      message: 'Unauthorized',
     });
   }
 
@@ -17,14 +17,14 @@ export const handler = ApiHandler(async () => {
   if (session.isAuthorized) {
     return createAPIResponse({
       error: false,
-      message: "Valid session",
+      message: 'Valid session',
       data: session.data,
     });
   }
 
   return createAPIResponse({
     error: true,
-    message: "Invalid session",
+    message: 'Invalid session',
     statusCode: 401,
   });
 });

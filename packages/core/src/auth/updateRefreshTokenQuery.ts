@@ -1,4 +1,4 @@
-import { db, dbSchema } from '../db';
+import { db, dbSchema } from '../db/connection';
 import { eq } from 'drizzle-orm';
 
 export default async function updateRefreshTokenQuery({
