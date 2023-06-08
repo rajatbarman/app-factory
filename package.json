@@ -9,9 +9,9 @@
     "deploy": "sst deploy",
     "remove": "sst remove",
     "console": "sst console",
-    "gen-migrator-script": "esbuild --bundle --format=esm --target=esnext --platform=node packages/core/src/db/migrate.ts --banner:js=\"import { createRequire } from 'module';const require = createRequire(import.meta.url);\" --outfile=migrations/migrate.js",
     "gen-migrations": "drizzle-kit generate:pg --out migrations --schema packages/core/src/db/schema.ts",
-    "migrate": "env-cmd node migrations/migrate.js",
+    "drop-migration": "drizzle-kit drop --out migrations",
+    "migrate": "esbuild --bundle --format=esm --target=esnext --platform=node packages/core/src/db/migrate.ts --banner:js=\"import { createRequire } from 'module';const require = createRequire(import.meta.url);\" --outfile=migrations/migrate.js && env-cmd node migrations/migrate.js",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {

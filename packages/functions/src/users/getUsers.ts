@@ -1,5 +1,5 @@
 import { ApiHandler } from 'sst/node/api';
-import { db } from '@core/db/index';
+import { db } from '@core/db';
 import { users } from '@core/db/schema';
 import { createAPIResponse } from '@core/utils';
 

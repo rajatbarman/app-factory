@@ -1,6 +1,4 @@
-import { ApiHandler, useBody, useJsonBody } from 'sst/node/api';
-import { db } from '@core/db';
-import { users } from '@core/db/schema';
+import { ApiHandler, useJsonBody } from 'sst/node/api';
 import { createAPIResponse } from '@core/utils';
 import { insertUserQuery } from '@core/users';
 
