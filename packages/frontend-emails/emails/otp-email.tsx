@@ -16,7 +16,7 @@ interface OTPEmailProps {
   otp: string | number;
 }
 
-const OTPEmail = ({ otp = '123456' } : OTPEmailProps) => (
+const OTPEmail = ({ otp = '123456' }: OTPEmailProps) => (
   <Html>
     <Head />
     <Preview>One time password</Preview>
@@ -32,9 +32,8 @@ const OTPEmail = ({ otp = '123456' } : OTPEmailProps) => (
             ...text,
             color: '#ababab',
             marginTop: '12px',
-            marginBottom: '0px'
-          }}
-        >
+            marginBottom: '0px',
+          }}>
           Copy and paste this code to login
         </Text>
         <Text
@@ -43,8 +42,7 @@ const OTPEmail = ({ otp = '123456' } : OTPEmailProps) => (
             color: '#ababab',
             marginTop: '14px',
             marginBottom: '16px',
-          }}
-        >
+          }}>
           If you didn&apos;t try to login, you can safely ignore this email.
         </Text>
       </Container>
@@ -52,10 +50,9 @@ const OTPEmail = ({ otp = '123456' } : OTPEmailProps) => (
   </Html>
 );
 
-
-export const renderOtpEmail = ({otp} : OTPEmailProps) => {
-  return render(<OTPEmail otp={otp} />)
-}
+export const renderOtpEmail = ({ otp }: OTPEmailProps) => {
+  return render(<OTPEmail otp={otp} />);
+};
 
 export default OTPEmail;
 
@@ -96,5 +93,5 @@ const code = {
   border: '1px solid #eee',
   color: '#333',
   fontSize: '24px',
-  letterSpacing: '2px'
+  letterSpacing: '2px',
 };
